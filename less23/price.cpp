@@ -16,6 +16,9 @@ bool Price::init() {
     product = {"Green Whiteboard Marker", 17.50f, 10, 10};
     product.save_to_file(file);
 
+    product = {"Red Whiteboard Marker", 17.50f, 12, 20};
+    product.save_to_file(file);
+
     file.close();
     return true;
 }

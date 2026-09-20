@@ -3,7 +3,6 @@
 #include <string>
 #include "product.h"
 #include "price.h"
-
 int main()
 {
     setlocale(LC_ALL, "UA");
