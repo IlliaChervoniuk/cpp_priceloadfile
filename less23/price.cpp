@@ -1,3 +1,4 @@
+#include <format>
 #include "price.h"
 
 
@@ -18,6 +19,16 @@ bool Price::init() {
 
     product = {"Red Whiteboard Marker", 17.55f, 12, 20};
     product.save_to_file(file);
+
+    product = {"Copybook", 7.55f, 20, 5};
+    product.save_to_file(file);
+
+    product = {"Ruler 30cm", 5.3f, 100, 0};
+    product.save_to_file(file);
+
+    product = {"Ruler 20cm", 2.3f, 100, 0};
+    product.save_to_file(file);
+
 
     file.close();
     return true;
