@@ -19,7 +19,7 @@ int main()
             break;
         }
 
-        switch (choice) {/
+        switch (choice) {
             case 1:
                 if (price->init()) {
                     std::cout << "Price init success" << std::endl;
