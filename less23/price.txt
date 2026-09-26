@@ -1,0 +1,28 @@
+Black Pencil
+14.95
+20
+0
+Blue Pen
+19.95
+25
+5
+Green Whiteboard Marker
+17.5
+10
+10
+Red Whiteboard Marker
+17.55
+12
+20
+Copybook
+7.55
+20
+5
+Ruler 30cm
+5.3
+100
+0
+Ruler 20cm
+2.3
+100
+0
