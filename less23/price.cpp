@@ -120,13 +120,13 @@ void Price::show_by_price_ascending() {
             is_order = false;
         }
         while (node->next->next) {
-            if (node->product.price > node->next->product.price) {
-                ListNode *tmp = node->next;
+            ListNode *tmp = node->next; //tmp = p2
+            if (node->product.price > node->next->next->product.price) {
                 node->next = node->next->next; // p1.next = p3
-                node->next->next = node->next->next->next; // p2.next = p3.next
-                node->next->next->next = tmp; //p3.next = p2
+                tmp->next = tmp->next->next; // p2.next = p3.next
+                tmp->next->next = tmp; //p3.next = p2
             }
-            node = node->next;
+            node = tmp;
         }
     } while (!is_order);
     show();

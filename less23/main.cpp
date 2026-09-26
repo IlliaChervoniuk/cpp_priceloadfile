@@ -13,6 +13,7 @@ int main()
             << "1: init price\n"
             << "2: load price\n"
             << "3: show price\n"
+            << "4: show price by ascending\n"
             << "0: exit\n"
             << "> ";
         if (!(std::cin >> choice)) {
@@ -38,6 +39,9 @@ int main()
                 break;
             case 3:
                 price->show();
+                break;
+            case 4:
+                price->show_by_price_ascending();
                 break;
             case 0:
                 return 0;
