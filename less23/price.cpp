@@ -80,6 +80,49 @@ void Price::show() const {
     }
 }
 
+void Price::show_by_price_ascending() {
+    // сортування - переставляння неправильно впорядкованих елементів
+    // до тих пір, поки їх не стане (всі у правильному порядку)
+    /* Перестановка у переліку :
+    * [p1|n]->[p2|n]->[p3|n]->0  поміняти місцями p1 і p2
+    * а) поміняти значення P в двох вузлах (через проміжну змінну)
+    *    [p1|n]->[p3|n]->[p2|n]
+    *    ! через те, що структури великі, це тягне за собою багато операцій
+    * б) поміняти покажчики на вузли
+    *    [p1|n]--------->[p3|n]  - більш ефективна операція
+    *        p4<-[p2|n]<-------|
+    */
+    bool is_order;
+    do {
+        is_order = true;
+        ListNode *node = first;
+        if (node->product.price > node->next->product.price) {
+            //f
+            //[p1|n]->[p2|n]->[p3|n]
+            //
+            // ---->f
+            //      [p2|n]
+            //<---------|
+            //[p1|n]---------->[p3|n]
+            ListNode *tmp = node->next;
+            first->next = first->next->next;    // p1.next = p3 (p2.next)
+            node->next->next = first;           // p2.next =p1
+            first = tmp;                        //----->f
+            node = first;
+            is_order = false;
+        }
+        while (node->next->next) {
+            if (node->product.price > node->next->product.price) {
+                ListNode *tmp = node->next;
+                node->next = node->next->next; // p1.next = p3
+                node->next->next = node->next->next->next; // p2.next = p3.next
+                node->next->next->next = tmp; //p3.next = p2
+            }
+            node = node->next;
+        }
+    } while (!is_order);
+}
+
 /*git - VCS (Version Control System)система, що дозволяє
  "зберігати" версії коду з можливістю повернення до попередніх
  версій, а такожутворення відгалужень (гілок) з різним розвиткомпроєкту.

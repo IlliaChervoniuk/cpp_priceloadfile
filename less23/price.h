@@ -13,4 +13,6 @@ struct Price {
     bool init();
     bool load();
     void show() const;
+    void show_by_price_ascending();
+
 };
