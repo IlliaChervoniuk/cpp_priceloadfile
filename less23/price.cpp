@@ -92,6 +92,14 @@ void Price::show_by_price_ascending() {
     *    [p1|n]--------->[p3|n]  - більш ефективна операція
     *        p4<-[p2|n]<-------|
     */
+    if (first == NULL) {
+        std::cout <<"Price is empty" << std::endl;
+        return;
+    }
+    if (first->next == NULL) {
+        std::cout << first->product.to_string() << std::endl;
+        return;
+    }
     bool is_order;
     do {
         is_order = true;
@@ -121,6 +129,7 @@ void Price::show_by_price_ascending() {
             node = node->next;
         }
     } while (!is_order);
+    show();
 }
 
 /*git - VCS (Version Control System)система, що дозволяє
