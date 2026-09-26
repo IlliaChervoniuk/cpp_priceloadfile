@@ -125,6 +125,7 @@ void Price::show_by_price_ascending() {
                 node->next = node->next->next; // p1.next = p3
                 tmp->next = tmp->next->next; // p2.next = p3.next
                 tmp->next->next = tmp; //p3.next = p2
+                is_order = false;
             }
             node = tmp;
         }
